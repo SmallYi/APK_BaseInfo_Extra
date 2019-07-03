@@ -1,15 +1,13 @@
 #!/usr/bin/env python
-
+#-*- coding: utf-8 -*-
 import sys
 import os
 from androguard.core.bytecodes import dvm,apk
 from androguard.core.analysis import analysis
 
-
 class APK_Analysis():
     def __init__(self):
         pass
-
 
     def getdex(self,path):
         a = apk.APK(path)
@@ -76,7 +74,6 @@ class APK_Analysis():
         for x in g:
             if x not in visited:
                 dfs(x)
-      #  print cycle
         return cycle
 
     def get_path(self,where_from,_from,to):
@@ -93,19 +90,14 @@ class APK_Analysis():
 
 
     def find_nodes(self,root,S=None):
-       # weight=0
         if S is None:
             S=set()
         S.add(root)
-      #  print '\n',root,'\n'
-       # raw_input()
         if root.get_next():
            for j in root.get_next():
-               # print j
                nextnode=j[2]
                if nextnode in S: 
                    continue
-              # weight=weight+1
                self.find_nodes(nextnode,S)  
         return (len(S)-1)
 
@@ -116,9 +108,6 @@ class APK_Analysis():
             if root.get_next():
                 rn=root.get_next()
                 return 1+self.Sum(rn[2])
-           # return 1+Sum(rn[2])
-
-            
 
     def find_path(self,start,end,path=[]):
         path=path+[start]
@@ -203,7 +192,6 @@ class APK_Analysis():
             properity=[]
             index=0
             for i in g.get_basic_blocks().get():
-                # print i.get_next(),'\n'
                 index=index+1
                 node_pro=[]
                 child_num=0

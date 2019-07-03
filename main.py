@@ -1,4 +1,5 @@
-# !/usr/bin/python3
+#!/usr/bin/env python
+#-*- coding: utf-8 -*-
 import time
 import os
 import argparse
@@ -13,13 +14,10 @@ parser.add_argument('--result_folder','-r', type=str, default="F:/Study/510/APK_
 parser.add_argument('--log_folder','-l', type=str, default="F:/Study/510/APK_BaseInfo/analysis/",
         help="Log save path")
 
-
 class APKAnalysis():
     def __init__(self,logger):
         self.logger = logger
-
-
-    # 主分析函数
+        
     def MainAnalysis(self,srcfolder,savefolder):
         Files = self.eachFile(srcfolder)
         for eachfile in Files:
@@ -35,7 +33,6 @@ class APKAnalysis():
                 logger.error(eachfile + " Faild to analysis from logger.error",exc_info = True)
         self.logger.info("Finish")
 
-
     def eachFile(self,folder):
         child=[]
         pathDir =  os.listdir(folder)
@@ -43,7 +40,7 @@ class APKAnalysis():
             child.append(os.path.join('%s%s' % (folder, allDir)))
         return child
 
-    # 对APK文件初步分析，函数嵌入
+    # 对APK文件初步提取
     def BaseInfo_Extra(self,filepath,savefolder):
         AnalysisHandle = APK_Analysis()
         apk_name,deal_msg = AnalysisHandle.AnalysisStart(filepath,savefolder)
