@@ -12,9 +12,10 @@
 '-s', 待分析APK文件夹
 '-r', 保存分析结果文件夹
 '-l', 日志保存文件夹
+最好使用绝对路径
 ```
 
 # 运行方式
 ```code
-python main.py -s F:\APK_BaseInfo\APK_Analysis -r F:\APK_BaseInfo\Res_Analysis -l F:\APK_BaseInfo\Log_Analysis
+例如：python main.py -s F:\APK_BaseInfo\APK_Analysis -r F:\APK_BaseInfo\Res_Analysis -l F:\APK_BaseInfo\Log_Analysis
 ```
