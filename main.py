@@ -30,7 +30,7 @@ class APKAnalysis():
                 self.logger.info(apk_name + ':' + deal_msg)
             except Exception:
                 print(Exception)
-                logger.error(eachfile + " Faild to analysis from logger.error",exc_info = True)
+                self.logger.error(eachfile + " Faild to analysis from logger.error",exc_info = True)
         self.logger.info("Finish")
 
     def eachFile(self,folder):
